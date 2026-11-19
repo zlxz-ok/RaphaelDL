@@ -13,6 +13,9 @@ def getinfo(link):
         "quiet":True,
         "no_warnings":True
     }
-    with yt_dlp.YoutubeDL(options)as yt:
-        info = yt.extract_info(link,download=False)
-        return info.get("title") or "Unknown",info.get("channel") or "Unknown",info.get("upload_date") or "Unknown",info.get("filesize_approx") or "Unknown"
+    try:
+       with yt_dlp.YoutubeDL(options)as yt:
+            info = yt.extract_info(link,download=False)
+            return True, info.get("title") or "Unknown",info.get("channel") or "Unknown",info.get("upload_date") or "Unknown",info.get("filesize_approx") or "Unknown"
+    except Exception as e:
+        return False, str(e),None,None,None

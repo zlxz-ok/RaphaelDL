@@ -160,6 +160,15 @@ sudo umount /mnt/raphaeldl
 
 **Note:** This is a temporary mount. It must be mounted again after restarting the system. Automatic mounting can be configured using `/etc/fstab`.
 
+## Contact
+
+Have questions, suggestions, or feedback about ZafBot?
+
+Discord: zlxz__
+
+For bug reports or feature requests, feel free to open a GitHub Issue.
+
+
 ## License
 
 RaphaelDL is licensed under the [MIT License](LICENSE).

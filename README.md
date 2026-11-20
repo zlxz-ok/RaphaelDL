@@ -37,6 +37,61 @@ RaphaelDL allows you to choose a custom folder for downloaded files.
 
 On Linux, you can also use an SMB network share by mounting it as a local directory.
 
+## Downloads & Installation
+
+RaphaelDL is distributed through [pipx](https://pipx.pypa.io/).
+
+**Requirements:** Python 3.11+, pipx and FFmpeg (recommended).
+
+### Linux
+
+Install pipx:
+
+```bash
+# Fedora
+sudo dnf install pipx
+
+# Ubuntu
+sudo apt update && sudo apt install pipx
+```
+
+Configure and install RaphaelDL:
+
+```bash
+pipx ensurepath
+pipx install git+https://github.com/zlxz-ok/RaphaelDL.git
+```
+
+Restart your terminal, then run:
+
+```bash
+rpdl
+```
+
+### Windows
+
+Open PowerShell:
+
+```powershell
+py -m pip install --user pipx
+py -m pipx ensurepath
+```
+
+Restart PowerShell, then install and run:
+
+```powershell
+pipx install git+https://github.com/zlxz-ok/RaphaelDL.git
+rpdl
+```
+
+### Uninstall
+
+On either platform:
+
+```bash
+pipx uninstall raphaeldl
+```
+
 ## SMB Network Storage Setup (Linux)
 
 RaphaelDL supports downloading files directly to an SMB network share mounted on your Linux system.

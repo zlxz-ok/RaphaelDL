@@ -149,13 +149,14 @@ def main():
                 message="URL of the video:"
             ).execute()
             qparsed = urlparse(qkdwn)
-            if qparsed.scheme not in ("https","http") or not qparsed.netloc:
-                console.print(f"[bold red]Insert a correct URL please[/bold red]")
-            try:
-                dowload(qkdwn,"bestvideo*+bestaudio/best",cfolder)
-                console.print(f"[bold green]Download Complete![/bold green]")
-            except Exception as e:
-                console.print(f"[bold red]The Download Failed[/bold red]")
+            if qparsed.scheme not in ("https", "http") or not qparsed.netloc:
+                console.print("[bold red]Insert a correct URL please[/bold red]")
+            else:
+                try:
+                    dowload(qkdwn, "bestvideo*+bestaudio/best", cfolder)
+                    console.print("[bold green]Download Complete![/bold green]")
+                except Exception as e:
+                    console.print("[bold red]The Download Failed[/bold red]")
         elif menu == "Exit":
             run = False
 

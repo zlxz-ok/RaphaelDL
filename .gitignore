@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc
-config.json
+cfg.json
 downloads/
 .venv/
 venv/
+*.egg-info/

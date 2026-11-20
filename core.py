@@ -1,9 +1,11 @@
 import yt_dlp
-def dowload(link,format):
+from pathlib import Path
+def dowload(link,format,cfolder):
     options = {
         "quiet":True,
         "no_warnings":True,
-        "format":format
+        "format":format,
+        "outtmpl":str(Path(cfolder) / "%(title)s.%(ext)s")
     }
     with yt_dlp.YoutubeDL(options)as yt:
         yt.download([link])

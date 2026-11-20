@@ -49,15 +49,30 @@ def furl(quality,urls,cfolder):
             console.print(f"[bold red]The Download Failed[/bold red]")
     elif quality == "Best Audio/No Video":
         try:
-            dowload(urls,"bestaudio",cfolder)
-            console.print(f"[bold green]Download Complete![/bold green]")
+            askformat = inquirer.select(
+                message="What format you want/it may fails sometimes?:",
+                choices=[
+                    "M4A",
+                    "WEBM"
+                ]
+            ).execute()
+            if askformat == "M4A":
+                dowload(urls,"bestaudio[ext=m4a]/bestaudio",cfolder)
+                console.print(f"[bold green]Download Complete![/bold green]")
+            elif askformat == "WEBM":
+                dowload(urls,"bestaudio[ext=webm]/bestaudio",cfolder)
+                console.print(f"[bold green]Download Complete![/bold green]")
             time.sleep(1)
         except Exception as e:
             console.print(f"[bold red]The Download Failed[/bold red]")
     elif quality == "Worst Audio/No Video":
         try:
-            dowload(urls,"worstaudio",cfolder)
-            console.print(f"[bold green]Download Complete![/bold green]")
+            if askformat == "M4A":
+                dowload(urls,"worstaudio[ext=m4a]/worstaudio",cfolder)
+                console.print(f"[bold green]Download Complete![/bold green]")
+            elif askformat == "WEBM":
+                dowload(urls,"worstaudio[ext=webm]/worstaudio",cfolder)
+                console.print(f"[bold green]Download Complete![/bold green]")
             time.sleep(1)
         except Exception as e:
             console.print(f"[bold red]The Download Failed[/bold red]")

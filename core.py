@@ -5,7 +5,8 @@ def dowload(link,format,cfolder):
         "quiet":True,
         "no_warnings":True,
         "format":format,
-        "outtmpl":str(Path(cfolder) / "%(title)s.%(ext)s")
+        "outtmpl":str(Path(cfolder) / "%(title)s.%(ext)s"),
+        "embedmetadata": True
     }
     with yt_dlp.YoutubeDL(options)as yt:
         yt.download([link])

@@ -2,13 +2,17 @@ import yt_dlp
 from pathlib import Path
 def dowload(link,format,cfolder):
     options = {
-        "quiet":True,
-        "no_warnings":True,
+        "quiet":False,
+        "no_warnings":False,
         "format":format,
         "outtmpl":str(Path(cfolder) / "%(title)s.%(ext)s"),
-        "embedmetadata": True
+        "embedmetadata": True,
     }
     with yt_dlp.YoutubeDL(options)as yt:
+        yt.add_post_processor(  
+            yt_dlp.postprocessor.FFmpegMetadataPP(yt),
+            when="post_process"
+        )
         yt.download([link])
 
 def getinfo(link):

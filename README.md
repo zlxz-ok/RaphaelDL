@@ -162,12 +162,11 @@ sudo umount /mnt/raphaeldl
 
 ## Contact
 
-Have questions, suggestions, or feedback about ZafBot?
+Have questions, suggestions, or feedback about RaphaelDL?
 
-Discord: zlxz__
+Discord: zlxz\_\_
 
 For bug reports or feature requests, feel free to open a GitHub Issue.
-
 
 ## License
 

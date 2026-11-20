@@ -2,8 +2,8 @@ import yt_dlp
 from pathlib import Path
 def dowload(link,format,cfolder):
     options = {
-        "quiet":False,
-        "no_warnings":False,
+        "quiet":True,
+        "no_warnings":True,
         "format":format,
         "outtmpl":str(Path(cfolder) / "%(title)s.%(ext)s"),
         "embedmetadata": True,

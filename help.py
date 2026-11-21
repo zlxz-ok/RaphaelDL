@@ -18,7 +18,7 @@ def squality():
         ]
     ).execute()
     return quality
-def furl(quality,urls,cfolder):
+def furl(quality,urls,cfolder,askformat):
     if quality == "Best Video,Audio":
      try:
         dowload(urls,"best",cfolder)
@@ -49,13 +49,6 @@ def furl(quality,urls,cfolder):
             console.print(f"[bold red]The Download Failed[/bold red]")
     elif quality == "Best Audio/No Video":
         try:
-            askformat = inquirer.select(
-                message="What format you want/it may fails sometimes?:",
-                choices=[
-                    "M4A",
-                    "WEBM"
-                ]
-            ).execute()
             if askformat == "M4A":
                 dowload(urls,"bestaudio[ext=m4a]/bestaudio",cfolder)
                 console.print(f"[bold green]Download Complete![/bold green]")
@@ -132,11 +125,18 @@ def main():
              cmlpdwn = inquirer.confirm(
                  message="Add anothern url?:"
              ).execute()
+             askformat = inquirer.select(
+                 message="What format you want/it may fails sometimes?:",
+                 choices=[
+                     "M4A",
+                     "WEBM"
+                 ]
+             ).execute()
              if not cmlpdwn:
                  break
             qualitys = squality()
             for link in links:
-             furl(qualitys,link,cfolder)
+             furl(qualitys,link,cfolder,askformat)
         elif menu == "Config":
             mconfig = inquirer.select(
                 message="Select a config:",

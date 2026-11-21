@@ -106,8 +106,17 @@ def main():
                      message="Is this your video:"
                  ).execute()
                  if crv:
+                     askformat = None
                      quality = squality()
-                     furl(quality,sndwn,cfolder)
+                     if quality in ("Best Audio/No Video", "Worst Audio/No Video"):
+                      askformat = inquirer.select(
+                         message="What format you want/it may fails sometimes?:",
+                         choices=[
+                         "M4A",
+                         "WEBM"
+                          ]
+                      ).execute()
+                     furl(quality,sndwn,cfolder,askformat)
                 else:
                     pass
         elif menu == "Multiples Downloads":
@@ -125,16 +134,18 @@ def main():
              cmlpdwn = inquirer.confirm(
                  message="Add anothern url?:"
              ).execute()
-             askformat = inquirer.select(
-                 message="What format you want/it may fails sometimes?:",
-                 choices=[
-                     "M4A",
-                     "WEBM"
-                 ]
-             ).execute()
              if not cmlpdwn:
                  break
+            askformat = None
             qualitys = squality()
+            if qualitys in ("Best Audio/No Video", "Worst Audio/No Video"):
+              askformat = inquirer.select(
+                  message="What format you want/it may fails sometimes?:",
+                  choices=[
+                      "M4A",
+                      "WEBM"
+                 ]
+              ).execute()
             for link in links:
              furl(qualitys,link,cfolder,askformat)
         elif menu == "Config":

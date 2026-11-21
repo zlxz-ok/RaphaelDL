@@ -7,7 +7,8 @@ def dowload(link,format,cfolder):
         "format":format,
         "outtmpl":str(Path(cfolder) / "%(title)s.%(ext)s"),
         "embedmetadata": True,
-        "writethumbnail": True
+        "writethumbnail": True,
+        "noplaylist":False,
     }
     with yt_dlp.YoutubeDL(options)as yt:
         yt.add_post_processor(  
